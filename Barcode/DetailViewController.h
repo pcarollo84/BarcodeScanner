@@ -10,8 +10,12 @@
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) NSDate *detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+typedef NS_ENUM(NSUInteger, ActionType) {
+    kActionTypeScan,
+    kActionTypeInput
+};
+
+@property ActionType actionType;
 
 @end
 

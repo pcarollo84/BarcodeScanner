@@ -10,14 +10,30 @@
 
 @interface DetailViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *scanContainerView;
+@property (weak, nonatomic) IBOutlet UIView *inputContainerView;
+
 @end
 
 @implementation DetailViewController
 
 - (void)configureView {
-    // Update the user interface for the detail item.
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    
+    switch (_actionType) {
+        case kActionTypeScan:
+            
+            self.scanContainerView.hidden = NO;
+            self.inputContainerView.hidden = YES;
+            
+            break;
+        case kActionTypeInput:
+
+            self.scanContainerView.hidden = YES;
+            self.inputContainerView.hidden = NO;
+            
+            break;
+        default:
+            break;
     }
 }
 
@@ -36,15 +52,6 @@
 
 
 #pragma mark - Managing the detail item
-
-- (void)setDetailItem:(NSDate *)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
 
 
 @end

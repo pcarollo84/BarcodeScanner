@@ -15,6 +15,9 @@
 		52C96BA320610D210069B698 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52C96BA120610D210069B698 /* LaunchScreen.storyboard */; };
 		52C96BA620610D210069B698 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96BA520610D210069B698 /* main.m */; };
 		52C96BB020610D210069B698 /* BarcodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96BAF20610D210069B698 /* BarcodeTests.m */; };
+		52C96BBC2061153A0069B698 /* ScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96BBB2061153A0069B698 /* ScanViewController.m */; };
+		52C96BBF206115450069B698 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96BBE206115450069B698 /* InputViewController.m */; };
+		52C96BC220611A2E0069B698 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52C96BC120611A2E0069B698 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,11 @@
 		52C96BAB20610D210069B698 /* BarcodeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BarcodeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C96BAF20610D210069B698 /* BarcodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarcodeTests.m; sourceTree = "<group>"; };
 		52C96BB120610D210069B698 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52C96BBA2061153A0069B698 /* ScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanViewController.h; sourceTree = "<group>"; };
+		52C96BBB2061153A0069B698 /* ScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanViewController.m; sourceTree = "<group>"; };
+		52C96BBD206115450069B698 /* InputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
+		52C96BBE206115450069B698 /* InputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
+		52C96BC120611A2E0069B698 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52C96BC220611A2E0069B698 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +78,7 @@
 				52C96B9220610D210069B698 /* Barcode */,
 				52C96BAE20610D210069B698 /* BarcodeTests */,
 				52C96B9120610D210069B698 /* Products */,
+				52C96BC020611A2D0069B698 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +105,10 @@
 				52C96BA120610D210069B698 /* LaunchScreen.storyboard */,
 				52C96BA420610D210069B698 /* Info.plist */,
 				52C96BA520610D210069B698 /* main.m */,
+				52C96BBA2061153A0069B698 /* ScanViewController.h */,
+				52C96BBB2061153A0069B698 /* ScanViewController.m */,
+				52C96BBD206115450069B698 /* InputViewController.h */,
+				52C96BBE206115450069B698 /* InputViewController.m */,
 			);
 			path = Barcode;
 			sourceTree = "<group>";
@@ -106,6 +120,14 @@
 				52C96BB120610D210069B698 /* Info.plist */,
 			);
 			path = BarcodeTests;
+			sourceTree = "<group>";
+		};
+		52C96BC020611A2D0069B698 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52C96BC120611A2E0069B698 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C96B9820610D210069B698 /* MasterViewController.m in Sources */,
+				52C96BBF206115450069B698 /* InputViewController.m in Sources */,
+				52C96BBC2061153A0069B698 /* ScanViewController.m in Sources */,
 				52C96B9520610D210069B698 /* AppDelegate.m in Sources */,
 				52C96BA620610D210069B698 /* main.m in Sources */,
 				52C96B9B20610D210069B698 /* DetailViewController.m in Sources */,

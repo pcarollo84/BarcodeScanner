@@ -67,6 +67,34 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    // Update camera orientation
+    AVCaptureVideoOrientation videoOrientation;
+    switch ([[UIDevice currentDevice] orientation]) {
+        case UIDeviceOrientationPortrait:
+            videoOrientation = AVCaptureVideoOrientationPortrait;
+            break;
+        case UIDeviceOrientationPortraitUpsideDown:
+            videoOrientation = AVCaptureVideoOrientationPortraitUpsideDown;
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            videoOrientation = AVCaptureVideoOrientationLandscapeRight;
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            videoOrientation = AVCaptureVideoOrientationLandscapeLeft;
+            break;
+        default:
+            videoOrientation = AVCaptureVideoOrientationPortrait;
+            break;
+    }
+    
+    _captureVideoPreviewLayer.connection.videoOrientation = videoOrientation;
+    _captureVideoPreviewLayer.frame = CGRectMake(0, 0, size.width, size.height);
+    
+}
 
 #pragma mark - Navigation
 

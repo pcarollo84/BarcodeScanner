@@ -20,8 +20,6 @@ static NSString *SelectionCellIdentifier = @"SelectionCellIdentifier";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
@@ -49,7 +47,7 @@ static NSString *SelectionCellIdentifier = @"SelectionCellIdentifier";
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        //  Not the perfect solution because it's not really dynamic
+        //  Not the perfect solution because it's not really dynamic but i think it's ok for this purpose
         controller.actionType = indexPath.row;
         
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;

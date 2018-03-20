@@ -48,7 +48,7 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
             
             // TODO: Handle the error
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self showAlertWithMessage:error.localizedDescription];
+                [self showAlertWithError:error];
             });
         }
         
@@ -91,10 +91,10 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
 
 #pragma mark - Error
 
-- (void)showAlertWithMessage:(NSString *)errorMessage {
+- (void)showAlertWithError:(NSError *)error {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Attention!"
-                                                                             message:errorMessage
+                                                                             message:[NSString stringWithFormat:@"%@\n%@", error.localizedDescription, error.localizedRecoverySuggestion]
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

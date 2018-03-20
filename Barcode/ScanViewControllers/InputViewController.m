@@ -25,6 +25,9 @@
     
     self.inputTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.inputTextField.delegate = self;
+    
+    //  The button will be disable by default as the input will be empty at the start
+    self.searchButton.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +60,8 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
-    //  do a validation to enable or disable the searchbutton
+    //  do a simple validation disabling searchbutton if the barcode is less then 13 characters
+    //  https://en.wikipedia.org/wiki/International_Article_Number#How_the_13-digit_EAN-13_is_encoded
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     self.searchButton.enabled = newString.length >= 13;
     

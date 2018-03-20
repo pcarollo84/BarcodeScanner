@@ -9,10 +9,10 @@
 #import "InputViewController.h"
 #import "BarcodeDetailTableViewController.h"
 
-@interface InputViewController ()
+@interface InputViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
-
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @property (strong, nonatomic) NSString *barcode;
 
@@ -22,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.inputTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.inputTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +50,18 @@
     
     self.barcode = self.inputTextField.text;
     [self performSegueWithIdentifier:@"barcodeDetailSegue" sender:nil];
+    
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+
+    //  do a validation to enable or disable the searchbutton
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    self.searchButton.enabled = newString.length >= 13;
+    
+    return YES;
     
 }
 

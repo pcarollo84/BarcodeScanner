@@ -174,15 +174,61 @@
                             <constraint firstItem="0Jq-Fe-cPt" firstAttribute="leading" secondItem="PR0-jp-uH3" secondAttribute="leading" constant="10" id="Oxh-GI-Hda"/>
                             <constraint firstItem="0Jq-Fe-cPt" firstAttribute="centerY" secondItem="PR0-jp-uH3" secondAttribute="centerY" id="gbR-b1-GUb"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="oEj-Fs-9gO"/>
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="ksO-Ff-PUr" id="Loy-9g-NfT"/>
                         <outlet property="permissionLabel" destination="0Jq-Fe-cPt" id="zVL-cb-vkt"/>
+                        <segue destination="4JV-Wn-4cv" kind="show" identifier="barcodeDetailSegue" id="lDZ-RE-y6R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4X3-f3-r70" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2006" y="-162"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="xOY-Ee-mRP">
+            <objects>
+                <tableViewController id="4JV-Wn-4cv" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gPZ-I8-kXc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="UgK-6e-f66" detailTextLabel="ptV-C3-WhS" style="IBUITableViewCellStyleSubtitle" id="CBH-EM-lPp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBH-EM-lPp" id="i0c-42-ewO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UgK-6e-f66">
+                                            <rect key="frame" x="16" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ptV-C3-WhS">
+                                            <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4JV-Wn-4cv" id="2xF-aD-Q2r"/>
+                            <outlet property="delegate" destination="4JV-Wn-4cv" id="RoN-fk-wF6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXW-5q-bg0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3093" y="128"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="xuX-Sd-8zN">
@@ -206,6 +252,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ft5-aZ-DEq"/>
                     </view>
+                    <connections>
+                        <segue destination="4JV-Wn-4cv" kind="show" identifier="barcodeDetailSegue" id="eDU-Te-HWT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qf8-1a-QuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,6 +262,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="eDU-Te-HWT"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

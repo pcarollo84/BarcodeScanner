@@ -8,6 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 #import "ScanViewController.h"
+#import "BarcodeDetailTableViewController.h"
 
 @interface ScanViewController () <AVCaptureMetadataOutputObjectsDelegate>
 
@@ -17,6 +18,8 @@
 @property (strong, nonnull) AVCaptureVideoPreviewLayer* captureVideoPreviewLayer;
 @property (strong, nonnull) AVCaptureSession *captureSession;
 @property (strong, nonnull) dispatch_queue_t sessionQueue;
+
+@property (strong, nonatomic) NSString *barcode;
 
 @end
 
@@ -52,15 +55,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.destinationViewController isKindOfClass:[BarcodeDetailTableViewController class]]) {
+        BarcodeDetailTableViewController *viewController = (BarcodeDetailTableViewController *)segue.destinationViewController;
+        viewController.barcode = self.barcode;
+    }
 }
-*/
+
 
 # pragma mark: - handlers
 
@@ -125,7 +132,11 @@ didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects
     if (metadataObjects.count > 0 && [metadataObjects.firstObject isKindOfClass:[AVMetadataMachineReadableCodeObject class]]) {
         
         AVMetadataMachineReadableCodeObject *scan = metadataObjects.firstObject;
-        NSLog(@"barcode %@", scan.stringValue);
+        NSString *barcode = scan.stringValue;
+        if (barcode && barcode.length > 0) {
+            self.barcode = barcode;
+            [self performSegueWithIdentifier:@"barcodeDetailSegue" sender:nil];
+        }
     }
     
 }

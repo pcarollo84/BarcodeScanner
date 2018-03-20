@@ -93,11 +93,11 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
 
 - (void)showAlertWithError:(NSError *)error {
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Attention!"
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"BarcodeDetailTableViewController.Alert.Title", nil)
                                                                              message:[NSString stringWithFormat:@"%@\n%@", error.localizedDescription, error.localizedRecoverySuggestion]
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"BarcodeDetailTableViewController.Alert.Action.Ok.Title", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [alertController addAction:okAction];

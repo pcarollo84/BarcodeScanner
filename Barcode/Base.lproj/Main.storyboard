@@ -186,16 +186,16 @@
             </objects>
             <point key="canvasLocation" x="2006" y="-162"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Barcode Detail Table View Controller-->
         <scene sceneID="xOY-Ee-mRP">
             <objects>
-                <tableViewController id="4JV-Wn-4cv" sceneMemberID="viewController">
+                <tableViewController id="4JV-Wn-4cv" customClass="BarcodeDetailTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gPZ-I8-kXc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="UgK-6e-f66" detailTextLabel="ptV-C3-WhS" style="IBUITableViewCellStyleSubtitle" id="CBH-EM-lPp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeDetailCellId" textLabel="UgK-6e-f66" detailTextLabel="ptV-C3-WhS" style="IBUITableViewCellStyleSubtitle" id="CBH-EM-lPp">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBH-EM-lPp" id="i0c-42-ewO">
@@ -262,7 +262,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eDU-Te-HWT"/>
+        <segue reference="lDZ-RE-y6R"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

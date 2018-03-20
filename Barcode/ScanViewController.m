@@ -134,8 +134,16 @@ didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects
         AVMetadataMachineReadableCodeObject *scan = metadataObjects.firstObject;
         NSString *barcode = scan.stringValue;
         if (barcode && barcode.length > 0) {
+            
+            dispatch_async(_sessionQueue, ^{
+                [self.captureSession stopRunning];
+            });
+            
             self.barcode = barcode;
-            [self performSegueWithIdentifier:@"barcodeDetailSegue" sender:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"barcodeDetailSegue" sender:nil];
+            });
+            
         }
     }
     

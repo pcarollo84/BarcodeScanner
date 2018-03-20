@@ -38,13 +38,7 @@
 
                                       }
                                       
-                                      NSDictionary *items = json[@"items"];
-                                      if (items) {
-                                          completionHandler(items, nil);
-                                      } else {
-                                          completionHandler(nil, error);
-                                      }
-                                      
+                                      completionHandler(json, error);
                                       
                                   }];
     

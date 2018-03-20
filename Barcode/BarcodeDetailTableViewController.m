@@ -13,8 +13,8 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
 
 @interface BarcodeDetailTableViewController ()
 
-@property (strong, nonnull, nonatomic) NSDictionary *detailDictionary;
-@property (strong, nonnull, nonatomic) NSArray *keys;
+@property (strong, nonnull, nonatomic) NSArray *items;
+@property (strong, nonnull, nonatomic) NSDictionary *itemDictionary;
 
 @end
 
@@ -26,17 +26,19 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
     [[BarcodeService shared] findBarcode:self.barcode withCompletionHandler:^(NSDictionary *dictionary, NSError *error) {
         
         if (!error) {
-            
-            self.detailDictionary = dictionary;
-            self.keys = self.detailDictionary.allKeys;
+
+            self.items = dictionary[@"items"];
+            self.itemDictionary = (NSDictionary *)self.items.firstObject;
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
             
+            
         } else {
             
             // TODO: Handle the error
+            NSLog(@"%@", error.localizedDescription);
         }
         
     }];
@@ -56,16 +58,22 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.keys.count;
+    return self.itemDictionary.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:detailCellId forIndexPath:indexPath];
     
-    NSString *key = self.keys[indexPath.row];
-    cell.textLabel.text = key;
-    cell.detailTextLabel.text = self.detailDictionary[key];
+    NSString *key = (NSString *)_itemDictionary.allKeys[indexPath.row];
+    if (key && key.length > 0) {
+        cell.textLabel.text = key;
+    }
+    
+    if ([_itemDictionary.allValues[indexPath.row] isKindOfClass:[NSString class]]) {
+        NSString *value = _itemDictionary.allValues[indexPath.row];
+        cell.detailTextLabel.text = value;
+    }
     
     return cell;
 }

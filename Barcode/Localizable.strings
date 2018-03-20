@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Barcode
+
+  Created by Paolo Carollo on 20/03/2018.
+  Copyright © 2018 Paolo Carollo. All rights reserved.
+*/
+
+"MasterViewController.Actions.Scan" = "Scan Barcode";
+"MasterViewController.Actions.Input" = "Input Barcode";
+
+"BarcodeDetailTableViewController.Alert.Title" = "Attention!";
+"BarcodeDetailTableViewController.Alert.Action.Ok.Title" = "OK";
+
+"BarcodeService.Error.InvalidBarcode.Description" = "Invalid Barcode.";
+"BarcodeService.Error.InvalidBarcode.FailureReason" = "The service couldn't find any info.";
+"BarcodeService.Error.InvalidBarcode.Suggestion" = "Check the barcode and try again.";

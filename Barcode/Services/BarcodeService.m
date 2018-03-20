@@ -50,9 +50,9 @@ static NSString *BarcodeScannerDomain = @"BarcodeScannerDomain";
                                           } else {
 
                                               NSDictionary *userInfo = @{
-                                                                         NSLocalizedDescriptionKey: NSLocalizedString(@"Invalid Barcode.", nil),
-                                                                         NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"The service couldn't find any info.", nil),
-                                                                         NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Check the barcode and try again.", nil)
+                                                                         NSLocalizedDescriptionKey: NSLocalizedString(@"BarcodeService.Error.InvalidBarcode.Description", nil),
+                                                                         NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"BarcodeService.Error.InvalidBarcode.FailureReason", nil),
+                                                                         NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"BarcodeService.Error.InvalidBarcode.Suggestion", nil)
                                                                          };
                                               NSError *error = [NSError errorWithDomain:BarcodeScannerDomain
                                                                                    code:42

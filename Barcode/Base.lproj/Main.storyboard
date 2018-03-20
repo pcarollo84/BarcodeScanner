@@ -274,6 +274,7 @@
                     </view>
                     <connections>
                         <outlet property="inputTextField" destination="ngK-yk-axg" id="mQX-Yc-uea"/>
+                        <outlet property="searchButton" destination="Oqq-Vq-6NQ" id="eA3-Fp-1tI"/>
                         <segue destination="4JV-Wn-4cv" kind="show" identifier="barcodeDetailSegue" id="eDU-Te-HWT"/>
                     </connections>
                 </viewController>
@@ -283,7 +284,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lDZ-RE-y6R"/>
+        <segue reference="eDU-Te-HWT"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

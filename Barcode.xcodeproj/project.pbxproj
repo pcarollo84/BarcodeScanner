@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		52070AE72061411900461751 /* BarcodeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 52070AE62061411900461751 /* BarcodeService.m */; };
 		52070AEB2061440600461751 /* BarcodeDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52070AEA2061440600461751 /* BarcodeDetailTableViewController.m */; };
+		522883622061698D008C7E9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 522883612061698D008C7E9D /* Localizable.strings */; };
 		52C96B9520610D210069B698 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96B9420610D210069B698 /* AppDelegate.m */; };
 		52C96B9820610D210069B698 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96B9720610D210069B698 /* MasterViewController.m */; };
 		52C96B9B20610D210069B698 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C96B9A20610D210069B698 /* DetailViewController.m */; };
@@ -37,6 +38,7 @@
 		52070AE82061412500461751 /* BarcodeService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarcodeService.h; sourceTree = "<group>"; };
 		52070AE92061440600461751 /* BarcodeDetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarcodeDetailTableViewController.h; sourceTree = "<group>"; };
 		52070AEA2061440600461751 /* BarcodeDetailTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BarcodeDetailTableViewController.m; sourceTree = "<group>"; };
+		522883612061698D008C7E9D /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		52C96B9020610D210069B698 /* Barcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Barcode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C96B9320610D210069B698 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		52C96B9420610D210069B698 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +80,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5228835E206168FA008C7E9D /* ScanViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				52C96B9920610D210069B698 /* DetailViewController.h */,
+				52C96B9A20610D210069B698 /* DetailViewController.m */,
+				52C96BBA2061153A0069B698 /* ScanViewController.h */,
+				52C96BBB2061153A0069B698 /* ScanViewController.m */,
+				52C96BBD206115450069B698 /* InputViewController.h */,
+				52C96BBE206115450069B698 /* InputViewController.m */,
+			);
+			path = ScanViewControllers;
+			sourceTree = "<group>";
+		};
+		5228835F2061690C008C7E9D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				52070AE82061412500461751 /* BarcodeService.h */,
+				52070AE62061411900461751 /* BarcodeService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5228836020616926008C7E9D /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				52070AE92061440600461751 /* BarcodeDetailTableViewController.h */,
+				52070AEA2061440600461751 /* BarcodeDetailTableViewController.m */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		52C96B8720610D210069B698 = {
 			isa = PBXGroup;
 			children = (
@@ -104,21 +137,15 @@
 				52C96B9420610D210069B698 /* AppDelegate.m */,
 				52C96B9620610D210069B698 /* MasterViewController.h */,
 				52C96B9720610D210069B698 /* MasterViewController.m */,
-				52C96B9920610D210069B698 /* DetailViewController.h */,
-				52C96B9A20610D210069B698 /* DetailViewController.m */,
 				52C96B9C20610D210069B698 /* Main.storyboard */,
 				52C96B9F20610D210069B698 /* Assets.xcassets */,
 				52C96BA120610D210069B698 /* LaunchScreen.storyboard */,
 				52C96BA420610D210069B698 /* Info.plist */,
 				52C96BA520610D210069B698 /* main.m */,
-				52C96BBA2061153A0069B698 /* ScanViewController.h */,
-				52C96BBB2061153A0069B698 /* ScanViewController.m */,
-				52C96BBD206115450069B698 /* InputViewController.h */,
-				52C96BBE206115450069B698 /* InputViewController.m */,
-				52070AE82061412500461751 /* BarcodeService.h */,
-				52070AE62061411900461751 /* BarcodeService.m */,
-				52070AE92061440600461751 /* BarcodeDetailTableViewController.h */,
-				52070AEA2061440600461751 /* BarcodeDetailTableViewController.m */,
+				5228835E206168FA008C7E9D /* ScanViewControllers */,
+				5228835F2061690C008C7E9D /* Services */,
+				5228836020616926008C7E9D /* Details */,
+				522883612061698D008C7E9D /* Localizable.strings */,
 			);
 			path = Barcode;
 			sourceTree = "<group>";
@@ -223,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52C96BA320610D210069B698 /* LaunchScreen.storyboard in Resources */,
+				522883622061698D008C7E9D /* Localizable.strings in Resources */,
 				52C96BA020610D210069B698 /* Assets.xcassets in Resources */,
 				52C96B9E20610D210069B698 /* Main.storyboard in Resources */,
 			);

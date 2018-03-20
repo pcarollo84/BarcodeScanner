@@ -24,7 +24,8 @@ static NSString *SelectionCellIdentifier = @"SelectionCellIdentifier";
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     //  Add Actions
-    self.actions = @[@"Scan Barcode", @"Input Barcode"];
+    self.actions = @[NSLocalizedString(@"MasterViewController.Actions.Scan", nil),
+                     NSLocalizedString(@"MasterViewController.Actions.Input", nil)];
     
 }
 

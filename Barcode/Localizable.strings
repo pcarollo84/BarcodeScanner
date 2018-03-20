@@ -6,8 +6,11 @@
   Copyright © 2018 Paolo Carollo. All rights reserved.
 */
 
+"MasterViewController.Title" = "Menu";
 "MasterViewController.Actions.Scan" = "Scan Barcode";
 "MasterViewController.Actions.Input" = "Input Barcode";
+
+"DetailViewController.Title" = "Barcode";
 
 "InputViewController.DescriptionLabel.Text" = "Insert a barcode manually. It must be composed of 13 numbers.";
 

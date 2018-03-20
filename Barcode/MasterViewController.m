@@ -21,6 +21,7 @@ static NSString *SelectionCellIdentifier = @"SelectionCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.title = NSLocalizedString(@"MasterViewController.Title", nil);
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     
     //  Add Actions

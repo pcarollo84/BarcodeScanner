@@ -41,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.title = NSLocalizedString(@"DetailViewController.Title", nil);
     [self configureView];
 }
 

@@ -9,6 +9,8 @@
 "MasterViewController.Actions.Scan" = "Scan Barcode";
 "MasterViewController.Actions.Input" = "Input Barcode";
 
+"InputViewController.DescriptionLabel.Text" = "Insert a barcode manually. It must be composed of 13 numbers.";
+
 "BarcodeDetailTableViewController.Alert.Title" = "Attention!";
 "BarcodeDetailTableViewController.Alert.Action.Ok.Title" = "OK";
 

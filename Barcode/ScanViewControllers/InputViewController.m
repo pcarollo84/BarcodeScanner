@@ -11,6 +11,7 @@
 
 @interface InputViewController () <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.descriptionLabel.text = NSLocalizedString(@"InputViewController.DescriptionLabel.Text", nil);
     
     self.inputTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.inputTextField.delegate = self;
@@ -60,10 +63,10 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 
-    //  do a simple validation disabling searchbutton if the barcode is less then 13 characters
+    //  do a simple validation disabling searchbutton if the barcode is different from 13 characters
     //  https://en.wikipedia.org/wiki/International_Article_Number#How_the_13-digit_EAN-13_is_encoded
     NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
-    self.searchButton.enabled = newString.length >= 13;
+    self.searchButton.enabled = newString.length == 13;
     
     return YES;
     

@@ -239,9 +239,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngK-yk-axg">
-                                <rect key="frame" x="10" y="91" width="355" height="30"/>
+                                <rect key="frame" x="20" y="91" width="335" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqq-Vq-6NQ">
@@ -251,7 +251,7 @@
                                     <action selector="handleSearchButtonDidTouchUpInside:" destination="b2k-pg-221" eventType="touchUpInside" id="ahN-8Y-Sbr"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a barcode manually" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-uZ-hTq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a barcode manually" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-uZ-hTq">
                                 <rect key="frame" x="89" y="50" width="197.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -265,14 +265,15 @@
                             <constraint firstItem="8Ow-uZ-hTq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ft5-aZ-DEq" secondAttribute="leading" constant="10" id="JkJ-dX-3jz"/>
                             <constraint firstItem="Oqq-Vq-6NQ" firstAttribute="centerX" secondItem="ngK-yk-axg" secondAttribute="centerX" id="RYW-2i-9dQ"/>
                             <constraint firstItem="8Ow-uZ-hTq" firstAttribute="centerX" secondItem="ngK-yk-axg" secondAttribute="centerX" id="SxN-oo-Z3g"/>
-                            <constraint firstItem="ngK-yk-axg" firstAttribute="leading" secondItem="ft5-aZ-DEq" secondAttribute="leading" constant="10" id="YiY-9e-ZRY"/>
+                            <constraint firstItem="ngK-yk-axg" firstAttribute="leading" secondItem="ft5-aZ-DEq" secondAttribute="leading" constant="20" id="YiY-9e-ZRY"/>
                             <constraint firstItem="ft5-aZ-DEq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Ow-uZ-hTq" secondAttribute="trailing" constant="10" id="dmU-BM-Vn5"/>
                             <constraint firstItem="8Ow-uZ-hTq" firstAttribute="top" secondItem="ft5-aZ-DEq" secondAttribute="top" constant="30" id="fAK-UZ-sIH"/>
-                            <constraint firstItem="ft5-aZ-DEq" firstAttribute="trailing" secondItem="ngK-yk-axg" secondAttribute="trailing" constant="10" id="qsV-QJ-gFc"/>
+                            <constraint firstItem="ft5-aZ-DEq" firstAttribute="trailing" secondItem="ngK-yk-axg" secondAttribute="trailing" constant="20" id="qsV-QJ-gFc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ft5-aZ-DEq"/>
                     </view>
                     <connections>
+                        <outlet property="descriptionLabel" destination="8Ow-uZ-hTq" id="8W9-YP-2QP"/>
                         <outlet property="inputTextField" destination="ngK-yk-axg" id="mQX-Yc-uea"/>
                         <outlet property="searchButton" destination="Oqq-Vq-6NQ" id="eA3-Fp-1tI"/>
                         <segue destination="4JV-Wn-4cv" kind="show" identifier="barcodeDetailSegue" id="eDU-Te-HWT"/>
@@ -280,7 +281,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qf8-1a-QuE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="561"/>
+            <point key="canvasLocation" x="2005.5999999999999" y="560.86956521739137"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

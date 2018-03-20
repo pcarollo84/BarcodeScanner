@@ -8,6 +8,8 @@
 
 #import "BarcodeService.h"
 
+static NSString *BarcodeScannerDomain = @"BarcodeScannerDomain";
+
 @implementation BarcodeService
 
 + (instancetype)shared {
@@ -30,15 +32,36 @@
                                             completionHandler:
                                   ^(NSData *data, NSURLResponse *response, NSError *error) {
                                       
-                                      NSDictionary *json = nil;
-                                      if (data) {
-                                          json = [NSJSONSerialization JSONObjectWithData:data
-                                                                                options:NSJSONReadingMutableContainers
-                                                                                  error:&error];
+                                      if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+                                          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                          
+                                          if (httpResponse.statusCode == 200) {
+                                              
+                                              NSDictionary *json = nil;
+                                              if (data) {
+                                                  json = [NSJSONSerialization JSONObjectWithData:data
+                                                                                         options:NSJSONReadingMutableContainers
+                                                                                           error:&error];
+                                                  
+                                              }
+                                              
+                                              completionHandler(json, nil);
+                                              
+                                          } else {
 
+                                              NSDictionary *userInfo = @{
+                                                                         NSLocalizedDescriptionKey: NSLocalizedString(@"Invalid Barcode.", nil),
+                                                                         NSLocalizedFailureReasonErrorKey: NSLocalizedString(@"The service couldn't find any info.", nil),
+                                                                         NSLocalizedRecoverySuggestionErrorKey: NSLocalizedString(@"Check the barcode and try again.", nil)
+                                                                         };
+                                              NSError *error = [NSError errorWithDomain:BarcodeScannerDomain
+                                                                                   code:42
+                                                                               userInfo:userInfo];
+                                              
+                                              completionHandler(nil, error);
+                                              
+                                          }
                                       }
-                                      
-                                      completionHandler(json, error);
                                       
                                   }];
     

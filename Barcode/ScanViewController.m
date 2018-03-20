@@ -43,10 +43,22 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+
+    if (self.captureSession && !self.captureSession.isRunning) {
+        dispatch_async(_sessionQueue, ^{
+            [self.captureSession startRunning];
+        });
+    }
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
     
-//    dispatch_async(_sessionQueue, ^{
-    
-//    });
+    dispatch_async(_sessionQueue, ^{
+        if (self.captureSession.isRunning) {
+            [self.captureSession stopRunning];
+        }
+    });
     
 }
 
@@ -118,8 +130,6 @@
     dispatch_async(_sessionQueue, ^{
         [self.captureSession startRunning];
     });
-    
-    
     
 }
 

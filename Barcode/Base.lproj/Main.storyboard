@@ -190,13 +190,13 @@
         <scene sceneID="xOY-Ee-mRP">
             <objects>
                 <tableViewController id="4JV-Wn-4cv" customClass="BarcodeDetailTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gPZ-I8-kXc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="gPZ-I8-kXc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarcodeDetailCellId" textLabel="UgK-6e-f66" detailTextLabel="ptV-C3-WhS" style="IBUITableViewCellStyleSubtitle" id="CBH-EM-lPp">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CBH-EM-lPp" id="i0c-42-ewO">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -209,7 +209,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ptV-C3-WhS">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ptV-C3-WhS">
                                             <rect key="frame" x="16" y="25.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -230,16 +230,29 @@
             </objects>
             <point key="canvasLocation" x="3093" y="128"/>
         </scene>
-        <!--View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="xuX-Sd-8zN">
             <objects>
-                <viewController id="b2k-pg-221" sceneMemberID="viewController">
+                <viewController id="b2k-pg-221" customClass="InputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iey-u9-SmD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOB-BD-pmb">
-                                <rect key="frame" x="168" y="291" width="39" height="21"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngK-yk-axg">
+                                <rect key="frame" x="10" y="91" width="355" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqq-Vq-6NQ">
+                                <rect key="frame" x="163" y="140.5" width="48" height="30"/>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="handleSearchButtonDidTouchUpInside:" destination="b2k-pg-221" eventType="touchUpInside" id="ahN-8Y-Sbr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert a barcode manually" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ow-uZ-hTq">
+                                <rect key="frame" x="89" y="50" width="197.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -247,12 +260,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LOB-BD-pmb" firstAttribute="centerY" secondItem="iey-u9-SmD" secondAttribute="centerY" id="XEq-Ob-rPo"/>
-                            <constraint firstItem="LOB-BD-pmb" firstAttribute="centerX" secondItem="iey-u9-SmD" secondAttribute="centerX" id="cYR-05-8RL"/>
+                            <constraint firstItem="Oqq-Vq-6NQ" firstAttribute="top" secondItem="ngK-yk-axg" secondAttribute="bottom" constant="20" id="2Pm-Sz-fsf"/>
+                            <constraint firstItem="ngK-yk-axg" firstAttribute="top" secondItem="8Ow-uZ-hTq" secondAttribute="bottom" constant="20" id="G3s-hh-lym"/>
+                            <constraint firstItem="8Ow-uZ-hTq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ft5-aZ-DEq" secondAttribute="leading" constant="10" id="JkJ-dX-3jz"/>
+                            <constraint firstItem="Oqq-Vq-6NQ" firstAttribute="centerX" secondItem="ngK-yk-axg" secondAttribute="centerX" id="RYW-2i-9dQ"/>
+                            <constraint firstItem="8Ow-uZ-hTq" firstAttribute="centerX" secondItem="ngK-yk-axg" secondAttribute="centerX" id="SxN-oo-Z3g"/>
+                            <constraint firstItem="ngK-yk-axg" firstAttribute="leading" secondItem="ft5-aZ-DEq" secondAttribute="leading" constant="10" id="YiY-9e-ZRY"/>
+                            <constraint firstItem="ft5-aZ-DEq" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8Ow-uZ-hTq" secondAttribute="trailing" constant="10" id="dmU-BM-Vn5"/>
+                            <constraint firstItem="8Ow-uZ-hTq" firstAttribute="top" secondItem="ft5-aZ-DEq" secondAttribute="top" constant="30" id="fAK-UZ-sIH"/>
+                            <constraint firstItem="ft5-aZ-DEq" firstAttribute="trailing" secondItem="ngK-yk-axg" secondAttribute="trailing" constant="10" id="qsV-QJ-gFc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ft5-aZ-DEq"/>
                     </view>
                     <connections>
+                        <outlet property="inputTextField" destination="ngK-yk-axg" id="mQX-Yc-uea"/>
                         <segue destination="4JV-Wn-4cv" kind="show" identifier="barcodeDetailSegue" id="eDU-Te-HWT"/>
                     </connections>
                 </viewController>
@@ -262,7 +283,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lDZ-RE-y6R"/>
+        <segue reference="eDU-Te-HWT"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

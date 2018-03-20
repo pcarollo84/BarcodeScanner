@@ -28,7 +28,16 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
         if (!error) {
 
             self.items = dictionary[@"items"];
-            self.itemDictionary = (NSDictionary *)self.items.firstObject;
+            NSDictionary *allValuesDictionary = (NSDictionary *)self.items.firstObject;
+
+            NSArray *validKeysToShow = @[@"title", @"brand", @"elid"];
+            
+            NSMutableDictionary *mutableItemDictionary = [[NSMutableDictionary alloc] init];
+            for (NSString *validKey in validKeysToShow) {
+                mutableItemDictionary[validKey] = allValuesDictionary[validKey];
+            }
+            
+            self.itemDictionary = mutableItemDictionary;
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
@@ -38,7 +47,9 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
         } else {
             
             // TODO: Handle the error
-            NSLog(@"%@", error.localizedDescription);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showAlertWithMessage:error.localizedDescription];
+            });
         }
         
     }];
@@ -78,49 +89,21 @@ static NSString *detailCellId = @"BarcodeDetailCellId";
     return cell;
 }
 
+#pragma mark - Error
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)showAlertWithMessage:(NSString *)errorMessage {
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Attention!"
+                                                                             message:errorMessage
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alertController addAction:okAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
